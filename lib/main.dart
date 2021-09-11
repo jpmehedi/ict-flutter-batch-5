@@ -5,6 +5,9 @@ void main() {
     MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "Demo Project",
+      theme: ThemeData(
+        fontFamily: "Lobster" ,
+      ),
       home: Scaffold(
         appBar: AppBar(
           title: Text("I'm Poor", 
@@ -16,9 +19,9 @@ void main() {
               fontWeight: FontWeight.bold,
               letterSpacing: 5.0,
               fontStyle: FontStyle.italic,
-              fontFamily: "Arial"
            ), 
           ),
+          
         ),
 
         // body: Center(
@@ -42,7 +45,7 @@ void main() {
         //     radius: 80,
         //     backgroundImage: NetworkImage("https://picsum.photos/250?image=9"),
         //   ),
-        // ),
+        // ), 
         body: Center(
           child: CircleAvatar(
             radius: 80,
