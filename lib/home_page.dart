@@ -20,12 +20,67 @@ class HomePage extends StatelessWidget {
            ), 
           ),
         ),
-        body: Center(
-          child: CircleAvatar(
-            radius: 80,
-            backgroundImage: AssetImage("assets/poor_man.png"),
+        body: Container(
+          color: Colors.pink,
+          // height: double.infinity,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            // crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Container(
+                color: Colors.red,
+                child: FlutterLogo(
+                  size: 100,
+                ),
+              ),
+              Container(
+                // width: double.infinity,
+                color: Colors.green,
+                child: FlutterLogo(
+                  size: 100,
+                ),
+              ),
+              Container(
+                color: Colors.orange,
+                child: FlutterLogo(
+                  size: 100,
+                ),
+              )
+            ],
           ),
-        ),
-      );
+        ) 
+    );
   }
 }
+
+
+
+// Container(
+//           color: Colors.pink,
+//           width: double.infinity,
+//           child: Column(
+//             mainAxisAlignment: MainAxisAlignment.spaceAround,
+//             crossAxisAlignment: CrossAxisAlignment.center,
+//             children: [
+//               Container(
+//                 color: Colors.red,
+//                 child: FlutterLogo(
+//                   size: 100,
+//                 ),
+//               ),
+//               Container(
+//                 // width: double.infinity,
+//                 color: Colors.green,
+//                 child: FlutterLogo(
+//                   size: 100,
+//                 ),
+//               ),
+//               Container(
+//                 color: Colors.orange,
+//                 child: FlutterLogo(
+//                   size: 100,
+//                 ),
+//               )
+//             ],
+//           ),
+//         ) 
