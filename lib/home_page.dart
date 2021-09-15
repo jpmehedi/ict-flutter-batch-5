@@ -22,10 +22,10 @@ class HomePage extends StatelessWidget {
         ),
         body: Container(
           color: Colors.pink,
-          width: double.infinity,
-          child: Column(
+          // height: double.infinity,
+          child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
-            crossAxisAlignment: CrossAxisAlignment.center,
+            // crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Container(
                 color: Colors.red,
@@ -52,3 +52,35 @@ class HomePage extends StatelessWidget {
     );
   }
 }
+
+
+
+// Container(
+//           color: Colors.pink,
+//           width: double.infinity,
+//           child: Column(
+//             mainAxisAlignment: MainAxisAlignment.spaceAround,
+//             crossAxisAlignment: CrossAxisAlignment.center,
+//             children: [
+//               Container(
+//                 color: Colors.red,
+//                 child: FlutterLogo(
+//                   size: 100,
+//                 ),
+//               ),
+//               Container(
+//                 // width: double.infinity,
+//                 color: Colors.green,
+//                 child: FlutterLogo(
+//                   size: 100,
+//                 ),
+//               ),
+//               Container(
+//                 color: Colors.orange,
+//                 child: FlutterLogo(
+//                   size: 100,
+//                 ),
+//               )
+//             ],
+//           ),
+//         ) 
