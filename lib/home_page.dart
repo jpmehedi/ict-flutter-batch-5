@@ -20,12 +20,16 @@ class HomePage extends StatelessWidget {
         body: Container(
           width: double.infinity,
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            // mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
                 width: 200,
                 height: 200,
-             
+                // padding: EdgeInsets.only(top: 20, left: 20),
+                // padding: EdgeInsets.all(20),
+                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                margin: EdgeInsets.only(top: 50),
+
                 decoration: BoxDecoration(
                   color: Colors.red,
                   // border: Border(
@@ -39,31 +43,26 @@ class HomePage extends StatelessWidget {
                   //   ),
                   //   top:  BorderSide(
                   //     color: Colors.black,
-                  //     width: 5,
-                  //   ),
-                  //   bottom:  BorderSide(
-                  //     color: Colors.black,
-                  //     width: 5,
-                  //   ),
+            
                   // )
-                  border: Border.all(
-                    color: Colors.black,
-                    width: 5
-                  ),
-                  borderRadius: BorderRadius.circular(20),
+                  // border: Border.all(
+                  //   color: Colors.black,
+                  //   width: 5
+                  // ),
+                  // borderRadius: BorderRadius.circular(20),
                   // borderRadius: BorderRadius.only(
                   //   topLeft: Radius.circular(20),
                   //   bottomRight: Radius.circular(20),
                   //   topRight: Radius.circular(30)
                   // ),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey,
-                      blurRadius: 5,
-                      spreadRadius: 15,
-                      offset: Offset(5, 5)
-                    )
-                  ],
+                  // boxShadow: [
+                  //   BoxShadow(
+                  //     color: Colors.grey,
+                  //     blurRadius: 5,
+                  //     spreadRadius: 15,
+                  //     offset: Offset(5, 5)
+                  //   )
+                  // ],
                   // gradient: LinearGradient(
                   //   begin: Alignment.topLeft,
                   //   end: Alignment.bottomRight,
@@ -74,19 +73,19 @@ class HomePage extends StatelessWidget {
                   //   ]
                   // )
 
-                  gradient: RadialGradient(
+                  // gradient: RadialGradient(
                     // radius: 0.5,
-                    colors: [
-                      Colors.red,
-                      Colors.green,
-                      Colors.orange,
-                    ],
-                    stops: [
-                     0.5,
-                     0.7,
-                     1,
-                    ]
-                  )
+                  //   colors: [
+                  //     Colors.red,
+                  //     Colors.green,
+                  //     Colors.orange,
+                  //   ],
+                  //   stops: [
+                  //    0.5,
+                  //    0.7,
+                  //    1,
+                  //   ] 
+                  // )
 
 
 
