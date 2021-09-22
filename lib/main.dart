@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:test_project/profile.dart';
+import 'package:test_project/day_ten.dart';
 
 void main() {
   runApp(
@@ -10,7 +10,9 @@ void main() {
       //   fontFamily: "Lobster" ,
       // ),
       // home: HomePage()
-      home: ProfileScreen(),
+      // home: ProfileScreen(),
+      // home: FullScreenDrawer(),
+      home: DayTen(),
     ),
   );
 }
