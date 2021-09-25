@@ -12,7 +12,7 @@ void main() {
       // home: HomePage()
       // home: ProfileScreen(),
       // home: FullScreenDrawer(),
-      home: DayTen(),
+      home: ContactScreen(),
     ),
   );
 }
