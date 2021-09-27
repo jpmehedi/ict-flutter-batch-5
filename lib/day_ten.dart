@@ -9,7 +9,7 @@ class ContactScreen extends StatelessWidget {
       appBar: AppBar(title: Text("ListView & ListTile"),),
       drawer: Drawer(
         child: Column(
-          children: [
+          children: [ 
             Container(
               child: Stack(
                 children: [
@@ -48,45 +48,45 @@ class ContactScreen extends StatelessWidget {
               ),
             ),
 
-            ListTile(
-              onTap: (){},
-              leading: Icon(Icons.music_video),
-              title: Text(
-                "Music"
-              ),
-            ),
+            // ListTile(
+            //   onTap: (){},
+            //   leading: Icon(Icons.music_video),
+            //   title: Text(
+            //     "Music"
+            //   ),
+            // ),
             
-            ListTile(
-              onTap: (){},
-              leading: Icon(Icons.movie_rounded),
-              title: Text(
-                "Movies"
-              ),
-            ),
+            // ListTile(
+            //   onTap: (){},
+            //   leading: Icon(Icons.movie_rounded),
+            //   title: Text(
+            //     "Movies"
+            //   ),
+            // ),
             
-            ListTile(
-              onTap: (){},
-              leading: Icon(Icons.shop),
-              title: Text(
-                "Shop"
-              ),
-            ),
+            // ListTile(
+            //   onTap: (){},
+            //   leading: Icon(Icons.shop),
+            //   title: Text(
+            //     "Shop"
+            //   ),
+            // ),
             
-            ListTile(
-              onTap: (){},
-              leading: Icon(Icons.music_video),
-              title: Text(
-                "Music"
-              ),
-            ),
+            // ListTile(
+            //   onTap: (){},
+            //   leading: Icon(Icons.music_video),
+            //   title: Text(
+            //     "Music"
+            //   ),
+            // ),
             
-            ListTile(
-              onTap: (){},
-              leading: Icon(Icons.apps),
-              title: Text(
-                "Apps"
-              ),
-            )
+            // ListTile(
+            //   onTap: (){},
+            //   leading: Icon(Icons.apps),
+            //   title: Text(
+            //     "Apps"
+            //   ),
+            // )
           ],
         ),
       ),

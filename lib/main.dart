@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:test_project/day_ten.dart';
+import 'package:test_project/screen_one.dart';
 
 void main() {
   runApp(
@@ -12,7 +12,7 @@ void main() {
       // home: HomePage()
       // home: ProfileScreen(),
       // home: FullScreenDrawer(),
-      home: ContactScreen(),
+      home: ScreenOne()
     ),
   );
 }
