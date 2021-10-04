@@ -18,13 +18,14 @@ class _HomeScreenState extends State<HomeScreen> {
     Container(
       width: double.infinity,
       height: double.infinity,
-      color: Colors.green,
+      color: Colors.white,
     ),
     Container(
       width: double.infinity,
       height: double.infinity,
       color: Colors.pink,
-    )
+    ),
+
   ];
 
   // void changeItem(int index) {
@@ -44,8 +45,9 @@ class _HomeScreenState extends State<HomeScreen> {
         
         items: [
             BottomNavigationBarItem(
-              icon: Icon(Icons.settings),
+              icon: Image.asset("assets/poor_man.png", width: 40, height: 40,),
               label: "Setting",
+              tooltip: "ajsdnbasjnd"
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.home),
@@ -58,6 +60,13 @@ class _HomeScreenState extends State<HomeScreen> {
             
         ],
         currentIndex: selectedIndex,
+        elevation: 20,
+        backgroundColor: Colors.yellow,
+        iconSize: 24,
+        selectedItemColor: Colors.green,
+        unselectedItemColor: Colors.white,
+        selectedFontSize: 24,
+        unselectedFontSize: 18,
         onTap: (int index){
           setState(() {
            selectedIndex = index;
