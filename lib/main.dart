@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:test_project/button_screen.dart';
+import 'package:test_project/home_screen.dart';
 
 void main() {
   runApp(
@@ -12,7 +12,8 @@ void main() {
       // home: HomePage()
       // home: ProfileScreen(),
       // home: FullScreenDrawer(),
-      home: ButtonScreen()
+      // home: ButtonScreen()
+      home: HomeScreen(),
     ),
   );
 }
