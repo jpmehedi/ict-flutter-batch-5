@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:test_project/home_screen.dart';
+import 'package:test_project/bmi/bmi_screen.dart';
 
 void main() {
   runApp(
@@ -13,7 +13,7 @@ void main() {
       // home: ProfileScreen(),
       // home: FullScreenDrawer(),
       // home: ButtonScreen()
-      home: HomeScreen(),
+      home: BmiScreen(),
     ),
   );
 }
