@@ -1,10 +1,8 @@
-import 'package:test_project/function.dart';
+
 
 void main() {
   
-// print(addTwo());
-
- print(findEvenOdd(6, 3));
+  print(findEvenOdd(6));
   
 }
 
@@ -14,38 +12,38 @@ void main() {
 
 
 
-// findEvenOdd(int a) {
+findEvenOdd(int a) {
+  var c = 7;
+  if(a == 0 || a < 0 ) {
+    return "$a is not allowed";
+  }
 
-//   if(a == 0 || a < 0 ) {
-//     return "$a is not allowed";
-//   }
-
-//   if (a % 2 == 0) {
-//     return "$a number is even";
-//   }else {
-//     return "$a number is odd";
-//   }
-// }
+  if (a % 2 == 0) {
+    return "$a number is even";
+  }else {
+    return "$a number is odd";
+  }
+}
 
 
 //Write a function find even or odd number  
 
-addTwo() {
+// addTwo() {
   
-  int a = 10;
-  int b = 20;
-  int sum = a + b;
-//   print(sum);
+//   int a = 10;
+//   int b = 20;
+//   int sum = a + b;
+// //   print(sum);
   
-//   return a + b;
-  
-  return sum;
-  
-  int num = 60;
-  print(num);
+// //   return a + b;
   
 //   return sum;
   
-}
+//   int num = 60;
+//   print(num);
+  
+// //   return sum;
+  
+// }
   
   
