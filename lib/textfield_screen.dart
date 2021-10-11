@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:test_project/text_received_screen.dart';
 
 class TextFieldScreen extends StatefulWidget {
   const TextFieldScreen({Key? key}) : super(key: key);
@@ -9,9 +10,13 @@ class TextFieldScreen extends StatefulWidget {
 
 class _TextFieldScreenState extends State<TextFieldScreen> {
   bool isTap = false;
+  late TextEditingController _textEditingController = TextEditingController();
+
+  String email = "mehedi@augnitive.com";
 
   @override
   Widget build(BuildContext context) {
+    print(_textEditingController.text);
     return Scaffold(
       appBar: AppBar(
         title: Text("TextField"),
@@ -19,8 +24,10 @@ class _TextFieldScreenState extends State<TextFieldScreen> {
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             TextField(
+              controller: _textEditingController,
               // obscureText: true,
               // maxLines: 4,
               onTap: (){
@@ -28,6 +35,9 @@ class _TextFieldScreenState extends State<TextFieldScreen> {
                   isTap = true;
                 });
                 print(isTap);
+              },
+              onChanged: (String name){
+                setState(() {});
               },
               style: TextStyle(
                 color: Colors.red
@@ -59,6 +69,22 @@ class _TextFieldScreenState extends State<TextFieldScreen> {
                 // fillColor: Colors.purple
               ),
             ),
+            SizedBox(height: 20,),
+            _textEditingController.text.isNotEmpty ? Text(
+              _textEditingController.text,
+              style: TextStyle(
+                fontSize: 28,
+                fontWeight: FontWeight.w700
+              ),
+            ) : Text("Empty"),
+
+            ElevatedButton(
+              onPressed: (){
+                Route route = MaterialPageRoute(builder: (ctx)=>TextReceivedScreen(name: _textEditingController.text, email: email,));
+                Navigator.push(context, route);
+              }, 
+              child: Text("Go to Next")
+            )
           ],
         ),
       ),
