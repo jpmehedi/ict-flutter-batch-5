@@ -10,7 +10,7 @@ class TextFieldScreen extends StatefulWidget {
 
 class _TextFieldScreenState extends State<TextFieldScreen> {
   bool isTap = false;
-  late TextEditingController _textEditingController = TextEditingController();
+  TextEditingController _textEditingController = TextEditingController();
 
   String email = "mehedi@augnitive.com";
 
