@@ -44,6 +44,47 @@ List<Map<String, dynamic>> student = <Map<String, dynamic>>[
 
 ];
 
+
+  
+//   for(int i = 0; i < student.length; i++) {
+    
+//     if(student[i]['age'] is Map) {
+//       Map age = student[i]['age'];
+//       age.forEach((key, value){
+//         if(key != "old") {
+//           print(value);
+//         }
+//       });
+//       continue;
+//     }
+    
+//     print(student[i]["age"]);
+//   }
+  
+ 
+  
+  for(int i = 0; i < student.length; i++) {
+    
+//     print(student[i]["gender"].runtimeType);
+    
+    if(student[i]["gender"].runtimeType != String) {
+      
+      List gender = student[i]["gender"];
+
+      
+      for(int j = 0; j < gender.length; j++) {
+        print(gender[j]);
+      }
+      
+      continue;
+    }
+    print(student[i]["gender"]);
+  }
+  
+  
+  
+  
+
 print(student[2]["age"]["old"]);
   
   
