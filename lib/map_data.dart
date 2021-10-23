@@ -71,7 +71,6 @@ List<Map<String, dynamic>> student = <Map<String, dynamic>>[
       
       List gender = student[i]["gender"];
 
-      
       for(int j = 0; j < gender.length; j++) {
         print(gender[j]);
       }
