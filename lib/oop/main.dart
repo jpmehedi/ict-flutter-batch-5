@@ -10,11 +10,12 @@ void main() {
   // print(obj.name);
 
 
-  Son son = Son();
+  // Son son = Son(10, "Male");
+  Son son= Son(gender:  "Male", roll: 75);
 
   SonTwo sonTwo = SonTwo();
   print(son.multiply(52, 23));
-
+  son.showData();
 
   son.display();
   sonTwo.display();
