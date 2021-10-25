@@ -67,3 +67,58 @@ void main() {
 
 
 }
+
+
+
+// void main() {
+  
+//   int a = 5;
+//   String gender = a ? "Male" : "Female";
+
+//   MyClass obj = MyClass();
+
+//   obj.geek_name = "";
+  
+//   print(obj.geek_name);
+  
+  
+  
+// }
+
+
+// class MyClass{
+  
+  // Creating a field
+//   String? geekName;
+    
+  // Using the getter
+  // method to take input
+//   String get geek_name {
+//     return geekName!;
+//   }
+    
+  // Using the setter method
+  // to set the input
+//   set geek_name (String name) {
+//     if(name == "Mehedi"){
+//       print("if");
+//       this.geekName = name;
+//     }else if(name == "Hasan") {
+//       print("Else if");
+//       this.geekName = name;
+//     }
+
+//   } 
+  
+  
+// }
+
+
+
+
+
+
+
+
+
+
