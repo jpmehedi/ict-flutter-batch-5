@@ -1,6 +1,8 @@
 import 'package:test_project/oop/father.dart';
+import 'package:test_project/oop/mother.dart';
+import 'package:test_project/oop/son_two.dart';
 
-class Son extends Father{
+class Son with Father, Mother, SonTwo{
 
     int? roll;
     String? gender;
@@ -13,11 +15,7 @@ class Son extends Father{
   }
 
 
-  int _id = 20;
-  multiply(int num, int num2) {
-    return num * num2;
-  }
-
+ 
 
   @override
   void display() {
