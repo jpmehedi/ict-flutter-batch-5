@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:test_project/textfield_screen.dart';
+import 'package:test_project/counter_app.dart';
 
 void main() {
   runApp(
@@ -13,7 +13,7 @@ void main() {
       // home: ProfileScreen(),
       // home: FullScreenDrawer(),
       // home: ButtonScreen()
-      home: TextFieldScreen(),
+      home: CounterAppScreen(),
     ),
   );
 }
