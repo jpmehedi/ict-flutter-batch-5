@@ -3,9 +3,30 @@ import 'package:test_project/screen_two.dart';
 
 class ScreenOne extends StatelessWidget {
   static final String path = "ScreenOne";
-  const ScreenOne({ Key? key }) : super(key: key);
   final String name = "Mehedi";
   final int age = 25;
+
+  final List<Map<String, dynamic>> profile = <Map<String, dynamic>>[
+    {
+      "id": 01,
+      "name": "Mehedi Hasan",
+      "email": "mehedi@genex.com",
+      "phone": "01790180825"
+    },
+    {
+      "id": 02,
+      "name": "Rasel Ahmed",
+      "email": "mehedi@augnitive.com",
+      "phone": "01835243652"
+    },
+    {
+      "id": 03,
+      "name": "Nusrat Jahan",
+      "email": "nusrat@gmail.com",
+      "phone": "01428293256"
+    },
+
+  ];
 
 
   @override
