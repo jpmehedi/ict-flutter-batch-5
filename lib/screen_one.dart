@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:test_project/screen_two.dart';
 
 class ScreenOne extends StatelessWidget {
+  static final String path = "ScreenOne";
   const ScreenOne({ Key? key }) : super(key: key);
 
   @override
@@ -12,13 +13,7 @@ class ScreenOne extends StatelessWidget {
       body:Center(
         child: ElevatedButton(
           onPressed: (){
-            // Route route = MaterialPageRoute(builder: (context)=> ScreenTwo());
-
-            // Route route = MaterialPageRoute(builder: (context){
-            //   return ScreenTwo();
-            // });
-
-            Navigator.push(context, MaterialPageRoute(builder: (context)=> ScreenTwo()));
+            Navigator.pushNamed(context, ScreenTwo.path);
           }, 
           child: Text("ScreenOne")
         ),
