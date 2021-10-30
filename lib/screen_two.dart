@@ -7,6 +7,9 @@ class ScreenTwo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // final List data = ModalRoute.of(context)!.settings.arguments as List;
+      final Map data = ModalRoute.of(context)!.settings.arguments as Map;
+      print(data);
     return Scaffold(
 
       appBar: AppBar(
@@ -23,6 +26,7 @@ class ScreenTwo extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Text("Name: ${data["name"]} Age: ${data["age"]}"),
             ElevatedButton(
               onPressed: (){
                 Navigator.pushNamed(context, ScreenThree.path);
