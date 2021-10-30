@@ -23,24 +23,40 @@ class ScreenTwo extends StatelessWidget {
         ),
       ),
       body:Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text("Name: ${data["name"]} Age: ${data["age"]}"),
-            ElevatedButton(
-              onPressed: (){
-                Navigator.pushNamed(context, ScreenThree.path);
-              }, 
-              child: Text("ScreenTwo")
-            ),
-            SizedBox(height:30,),
-            ElevatedButton(
-              onPressed: (){
-                Navigator.pop(context);
-              }, 
-              child: Text("Back")
-            ),
-          ],
+        child: Padding(
+          padding: const EdgeInsets.all(15.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Card(
+                elevation: 15,
+                child: ListTile(
+                  title: Text("Name"),
+                  subtitle: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text("Phone"),
+                      Text("Email")
+                    ],
+                  ),
+                  isThreeLine: true,
+                ),
+              ),
+              ElevatedButton(
+                onPressed: (){
+                  Navigator.pushNamed(context, ScreenThree.path);
+                }, 
+                child: Text("ScreenTwo")
+              ),
+              SizedBox(height:30,),
+              ElevatedButton(
+                onPressed: (){
+                  Navigator.pop(context);
+                }, 
+                child: Text("Back")
+              ),
+            ],
+          ),
         ),
       ),
     );
