@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:test_project/counter_app.dart';
+import 'package:test_project/screen_one.dart';
+import 'package:test_project/screen_three.dart';
+import 'package:test_project/screen_two.dart';
 
 void main() {
   runApp(
     MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "Demo Project",
-      // theme: ThemeData(
-      //   fontFamily: "Lobster" ,
-      // ),
-      // home: HomePage()
-      // home: ProfileScreen(),
-      // home: FullScreenDrawer(),
-      // home: ButtonScreen()
-      home: CounterAppScreen(),
+      initialRoute: ScreenOne.path,
+      routes: {
+        ScreenOne.path :(context)=> ScreenOne(),
+        ScreenTwo.path :(context)=> ScreenTwo(),
+        ScreenThree.path :(context)=> ScreenThree(),
+      },
     ),
   );
 }
