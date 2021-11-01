@@ -34,14 +34,30 @@ class ScreenOne extends StatelessWidget {
     return  Scaffold(
 
       appBar: AppBar(title: Text("ScreenOne"),),
-      body:Center(
-        child: ElevatedButton(
-          onPressed: (){
-            // Navigator.pushNamed(context, ScreenTwo.path, arguments:[name, age]);
-            Navigator.pushNamed(context, ScreenTwo.path, arguments: {"name": name, "age": age});
-          }, 
-          child: Text("ScreenOne")
-        ),
+      body:Column(
+        children: [
+          Text(
+            "The quick brown fox jumps over the lazy dog",
+            style: Theme.of(context).textTheme.bodyText1
+          ),
+          Center(
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                primary: Theme.of(context).buttonColor
+              ),
+              onPressed: (){
+                // Navigator.pushNamed(context, ScreenTwo.path, arguments:[name, age]);
+                Navigator.pushNamed(context, ScreenTwo.path, arguments: {"name": name, "age": age});
+              }, 
+              child: Text("ScreenOne")
+            ),
+          ),
+        ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: (){},
+        foregroundColor: Theme.of(context).iconTheme.color,
+        child: Icon(Icons.add,),
       ),
     );
   }
