@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:test_project/account.dart';
 import 'package:test_project/screen_one.dart';
 import 'package:test_project/screen_three.dart';
 import 'package:test_project/screen_two.dart';
@@ -8,7 +9,7 @@ void main() {
     MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "Demo Project",
-      initialRoute: ScreenOne.path,
+      initialRoute: AccountScreen.path,
       theme: ThemeData(
         primaryColor: Colors.orange,
         fontFamily: "Lobster",
@@ -53,10 +54,11 @@ void main() {
         buttonColor: Colors.yellow
       ),
 
-      themeMode: ThemeMode.dark,
+      themeMode: ThemeMode.light,
 
 
       routes: {
+        AccountScreen.path :(context)=> AccountScreen(),
         ScreenOne.path :(context)=> ScreenOne(),
         ScreenTwo.path :(context)=> ScreenTwo(),
         ScreenThree.path :(context)=> ScreenThree(),
