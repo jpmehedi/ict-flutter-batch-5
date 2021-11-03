@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:test_project/account.dart';
+import 'package:test_project/responsive_screen.dart';
 import 'package:test_project/screen_one.dart';
 import 'package:test_project/screen_three.dart';
 import 'package:test_project/screen_two.dart';
@@ -9,7 +9,7 @@ void main() {
     MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "Demo Project",
-      initialRoute: AccountScreen.path,
+      initialRoute: RespoonsiveScreen.path,
       theme: ThemeData(
         primaryColor: Colors.orange,
         fontFamily: "Lobster",
@@ -58,7 +58,7 @@ void main() {
 
 
       routes: {
-        AccountScreen.path :(context)=> AccountScreen(),
+        RespoonsiveScreen.path :(context)=> RespoonsiveScreen(),
         ScreenOne.path :(context)=> ScreenOne(),
         ScreenTwo.path :(context)=> ScreenTwo(),
         ScreenThree.path :(context)=> ScreenThree(),
