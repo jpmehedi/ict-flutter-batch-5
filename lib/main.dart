@@ -9,7 +9,7 @@ void main() {
     MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "Demo Project",
-      initialRoute: RespoonsiveScreen.path,
+   
       theme: ThemeData(
         primaryColor: Colors.orange,
         fontFamily: "Lobster",
@@ -56,7 +56,7 @@ void main() {
 
       themeMode: ThemeMode.light,
 
-
+      initialRoute: ScreenOne.path,
       routes: {
         RespoonsiveScreen.path :(context)=> RespoonsiveScreen(),
         ScreenOne.path :(context)=> ScreenOne(),

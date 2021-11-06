@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:test_project/screen_two.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ScreenOne extends StatelessWidget {
   static final String path = "ScreenOne";
@@ -28,6 +29,16 @@ class ScreenOne extends StatelessWidget {
 
   ];
 
+  // final String url = "flutter";
+  
+  Future launchUrl(String url) async{
+    if(await canLaunch(url)) {
+      return launch(url);
+    }else {
+      print("Not valid $url");
+    }
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +66,9 @@ class ScreenOne extends StatelessWidget {
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: (){},
+        onPressed: (){
+          launchUrl("https://flutter.dev");
+        },
         foregroundColor: Theme.of(context).iconTheme.color,
         child: Icon(Icons.add,),
       ),
