@@ -39,13 +39,36 @@ class ScreenOne extends StatelessWidget {
     }
   }
 
+  Future launchEmail(String email, String sub, String body) async{
+    if(await canLaunch("mailto: $email?subject=$sub&body=$body")) {
+      return launch("mailto: $email?subject=$sub&body=$body");
+    }else {
+      print("Not valid $email");
+    }
+  }
+
+  Future launchPhone(String phone) async{
+    if(await canLaunch("tel:$phone")) {
+      return launch("tel:$phone");
+    }else {
+      print("Not valid $phone");
+    }
+  }
+    Future launchSMS(String sms) async{
+    if(await canLaunch("sms:$sms")) {
+      return launch("sms:$sms");
+    }else {
+      print("Not valid $sms");
+    }
+  }
+
 
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
 
       appBar: AppBar(title: Text("ScreenOne"),),
-      body:Column(
+      body: Column(
         children: [
           Text(
             "The quick brown fox jumps over the lazy dog",
@@ -67,7 +90,10 @@ class ScreenOne extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: (){
-          launchUrl("https://flutter.dev");
+          // launchUrl("https://flutter.dev");
+         launchSMS("Hello Dear");
+          // launchEmail("mehedi@genex.com", "Subject", "Hello Dear");
+          // launchPhone("01790180825");
         },
         foregroundColor: Theme.of(context).iconTheme.color,
         child: Icon(Icons.add,),
