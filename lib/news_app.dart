@@ -17,22 +17,18 @@ class _NewsAppScreenState extends State<NewsAppScreen> {
 
 
   final String url = "https://jsonplaceholder.typicode.com/posts";
-
   final String title = "Lorem Ipsum is simply dummy text of the printing and typesetting industry";
-
   final String description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.";
 
   List posts = [];
 
   Future getPost() async{
     final response = await http.get(Uri.parse(url));
-
     if(response.statusCode == 200 ) {
       setState(() {
         posts = jsonDecode(response.body);
       });
     }
-    
   }
 
 
