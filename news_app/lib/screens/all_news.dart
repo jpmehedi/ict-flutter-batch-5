@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:news_app/functions.dart';
 import 'package:news_app/screens/details.dart';
 class AllNews extends StatefulWidget {
   const AllNews({ Key? key }) : super(key: key);
@@ -13,7 +14,6 @@ class AllNews extends StatefulWidget {
 class _AllNewsState extends State<AllNews> {
   List allNewsData  = [];
   final String  url = "https://newsapi.org/v2/everything?q=tesla&from=2021-10-15&sortBy=publishedAt&apiKey=4159422918ad47e1bca6d72a504c5da6";
-
   Future getAllNews()async{
     final response = await http.get(Uri.parse(url));
     Map _allNewsData = {};
@@ -30,28 +30,6 @@ class _AllNewsState extends State<AllNews> {
   void initState() {
     getAllNews();
     super.initState();
-  }
-
-  String getAuthor(allNewsData){
-    if(allNewsData["author"] != null) {
-      return allNewsData["author"];
-    }else {
-       return allNewsData["source"]["name"];
-    }
-  }
-
-  String getDateTime(String publishedDateTime) {
-    String dateTime = publishedDateTime;
-    var date =  dateTime.split("T"); 
-    return date[0].toString() +" || "+ date[1].toString();
-  }
-
-  String getImage(getImage) {
-    if(getImage != null) {
-      return getImage;
-    }else{
-      return "Image not found";
-    }
   }
 
   @override
@@ -82,8 +60,8 @@ class _AllNewsState extends State<AllNews> {
               subtitle: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(getAuthor(allNewsData[index])),
-                  Text(getDateTime(allNewsData[index]["publishedAt"].toString())),
+                  Text(Functions.getAuthor(allNewsData[index])),
+                  Text(Functions.getDateTime(allNewsData[index]["publishedAt"])),
                 ],
               ),
 
@@ -92,7 +70,7 @@ class _AllNewsState extends State<AllNews> {
                 child: Hero(
                   tag: "${allNewsData[index]['title']}",
                   child: Image.network(
-                    getImage(allNewsData[index]["urlToImage"]),
+                    Functions.getImage(allNewsData[index]["urlToImage"]),
                     width: 100,
                     height: 100,
                     fit: BoxFit.cover,
@@ -111,3 +89,5 @@ class _AllNewsState extends State<AllNews> {
     );
   }
 }
+
+
