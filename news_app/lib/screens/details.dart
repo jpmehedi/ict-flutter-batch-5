@@ -1,7 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
-
+import 'package:news_app/functions.dart';
 class DetailsScreen extends StatefulWidget {
   static const String path = "DetailsScreen";
 
@@ -10,29 +9,9 @@ class DetailsScreen extends StatefulWidget {
 }
 
 class _DetailsScreenState extends State<DetailsScreen> {
-
-  Future launchUrl(url)async{
-    print("urll: $url");
-    if(await canLaunch(url)){
-      return launch(url);
-    }else{
-      throw "Could not launch $url";
-    }
-  }
-
-  String getAuthor(allNewsData){
-    print("authorsss: ${allNewsData["author"]}");
-    if(allNewsData["author"] != null) {
-      return allNewsData["author"];
-    }else {
-       return allNewsData["source"]["name"];
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     final Map newsData = ModalRoute.of(context)!.settings.arguments as Map;
-    print(newsData);
     return Scaffold(
       appBar: AppBar(
         elevation: 10,
@@ -54,7 +33,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
            Hero(
              tag: "${newsData["title"]}",
              child: Image.network(
-               newsData["urlToImage"],
+               Functions.getImage(newsData["urlToImage"]),
                width: double.infinity,
                height: 300,
             )
@@ -63,7 +42,8 @@ class _DetailsScreenState extends State<DetailsScreen> {
              mainAxisAlignment: MainAxisAlignment.spaceBetween,
              children: [
                Text("Author: ${newsData["author"]}"),
-               Text("Date: ${newsData["publishedAt"]}")
+               Text("Date: ${Functions.getDateTime(newsData["publishedAt"])}")
+              //  Text("Date: ${newsData["publishedAt"]}")
              ],
            ),
            SizedBox(height: 16,),
@@ -86,7 +66,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                       color: Colors.blue
                     ),
                     recognizer: TapGestureRecognizer()..onTap= (){
-                      launchUrl(newsData['url']);
+                      Functions.launchUrl(newsData['url']);
                     }
                   ),
                ]
@@ -98,3 +78,4 @@ class _DetailsScreenState extends State<DetailsScreen> {
     );
   }
 }
+
