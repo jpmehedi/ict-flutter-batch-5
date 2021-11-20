@@ -13,7 +13,7 @@ class AllNews extends StatefulWidget {
 
 class _AllNewsState extends State<AllNews> {
   List allNewsData  = [];
-  final String  url = "https://newsapi.org/v2/everything?q=tesla&from=2021-10-15&sortBy=publishedAt&apiKey=4159422918ad47e1bca6d72a504c5da6";
+  final String  url = "https://newsapi.org/v2/everything?q=tesla&from=2021-10-20&sortBy=publishedAt&apiKey=4159422918ad47e1bca6d72a504c5da6";
   Future getAllNews()async{
     final response = await http.get(Uri.parse(url));
     Map _allNewsData = {};
