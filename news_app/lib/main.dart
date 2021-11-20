@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/grid_view_screen.dart';
 import 'package:news_app/home_screen.dart';
 import 'package:news_app/screens/details.dart';
 
@@ -16,8 +17,9 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: HomeScreen(),
-      initialRoute: HomeScreen.path,
+      initialRoute: GridViewScreen.path,
       routes: {
+        GridViewScreen.path: (context)=> GridViewScreen(),
         HomeScreen.path : (context)=> HomeScreen(),
         DetailsScreen.path: (context)=> DetailsScreen(),
       },

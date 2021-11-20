@@ -2,7 +2,8 @@
   import 'package:intl/intl.dart';
 import 'package:url_launcher/url_launcher.dart';
 class Functions{
- static String getDateTime(String publishedDateTime) {
+
+  static String getDateTime(String publishedDateTime) {
     DateTime parseDate = DateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'").parse(publishedDateTime);
     var inputDate = DateTime.parse(parseDate.toString());
     var outputFormat = DateFormat('MM/dd/yyyy hh:mm a');
@@ -12,7 +13,6 @@ class Functions{
 
   
   static Future launchUrl(url)async{
-    print("urll: $url");
     if(await canLaunch(url)){
       return launch(url);
     }else{
@@ -25,7 +25,7 @@ class Functions{
     if(allNewsData["author"] != null) {
       return allNewsData["author"];
     }else {
-       return allNewsData["source"]["name"];
+      return allNewsData["source"]["name"];
     }
   }
 
@@ -37,4 +37,6 @@ class Functions{
       return "Image not found";
     }
   }
+
+  
 }
