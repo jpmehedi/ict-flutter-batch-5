@@ -20,12 +20,15 @@ class GridViewScreen  extends StatelessWidget {
         mainAxisSpacing: 10,
         padding: EdgeInsets.all(10),
         children: List.generate(5, (index) {
-          return Container(
-            width: 50,
-            height: 50,
+          return Card(
+            elevation: 10,
             color: colors[index],
-            child: Text("$index")
-          ); 
+            child: GridTile(
+              header: Text("Header"),
+              child: Icon(Icons.person),
+              footer: Text("Footer"),
+            ),
+          );
         })
       ),
     );
