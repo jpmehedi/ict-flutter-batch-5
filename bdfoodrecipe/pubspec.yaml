@@ -46,7 +46,7 @@ flutter:
   assets:
     - assets/images/rice/
     - assets/images/bread/
-    - assets/images/desert/
+    - assets/images/dessert/
     - assets/images/fast_food/
     - assets/images/non_veg/
 

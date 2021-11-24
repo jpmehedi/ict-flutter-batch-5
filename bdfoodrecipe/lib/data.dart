@@ -3,7 +3,7 @@ Map<String, dynamic> bdfood = <String, dynamic>{
     {
       "id": "01",
       "title": "My Favorite Butter Cookie Recipe",
-      "image": "image/...",
+      "image": "assets/images/bread/1.jpg",
       "ingredients": [
         "1/2 cup Salted Butter",
         "1/2 cup Powdered sugar",
@@ -29,7 +29,7 @@ Map<String, dynamic> bdfood = <String, dynamic>{
     {
       "id": "02",
       "title": "Teler Poa Pitha Recipe | Pakan Pitha",
-      "image": "image/...",
+      "image": "assets/images/bread/2.jpg",
       "ingredients": [
         "2 cups Rice flour",
         "1/2 cup Wheat flour",
@@ -53,7 +53,7 @@ Map<String, dynamic> bdfood = <String, dynamic>{
     {
       "id": "03",
       "title": "Fluffy Fried Bread | Fulko Luchi Recipe | Indian Bhatura",
-      "image": "image/...",
+      "image": "assets/images/bread/3.jpg",
       "ingredients": [
         "1 cup Flour",
         "1/2 tsp Sugar",
@@ -73,7 +73,7 @@ Map<String, dynamic> bdfood = <String, dynamic>{
     {
       "id": "04",
       "title": "Hot Milk Chocolate Cake Recipe",
-      "image": "image/...",
+      "image": "assets/images/bread/4.jpg",
       "ingredients": [
         "2 pcs Egg",
         "1 cup Flour",
@@ -110,7 +110,7 @@ Map<String, dynamic> bdfood = <String, dynamic>{
     {
       "id": "01",
       "title": "Narkel Naru Recipe",
-      "image": "image/...",
+      "image": "assets/images/dessert/1.jpg",
       "ingredients": [
         "1 and 1/2 cup Shredded coconut",
         "1 cup Sugarcane jaggery",
@@ -128,7 +128,7 @@ Map<String, dynamic> bdfood = <String, dynamic>{
     {
       "id": "02",
       "title": "Sweet Yogurt Recipe",
-      "image": "image/...",
+      "image": "assets/images/dessert/2.jpg",
       "ingredients": [" 3 cups Milk", " 1/2 cup Sugar", "1/2 cup Sour yogurt"],
       "directions": [
         "In a pan take sugar and water. Boil on low medium heat. When it turns into caramel add milk. Keep stirring and reduce to 2/3. Make it cold to lukewarm, but not completely cold.",
@@ -142,7 +142,7 @@ Map<String, dynamic> bdfood = <String, dynamic>{
     {
       "id": "03",
       "title": "Crispy Vaja Puli Pitha Recipe",
-      "image": "image/...",
+      "image": "assets/images/dessert/3.jpg",
       "ingredients": [
         " 1 and 1/2 cup Shreded coconut",
         " 1/2 cup Sugar",
@@ -166,7 +166,7 @@ Map<String, dynamic> bdfood = <String, dynamic>{
     {
       "id": "01",
       "title": "Bangladeshi Chinese Restaurant Style Thai Soup Recipe",
-      "image": "image/...",
+      "image": "assets/images/fast_food/1.jpg",
       "ingredients": [
         "1 pc Egg",
         "1/4 cup Tomato ketchup",
@@ -200,7 +200,7 @@ Map<String, dynamic> bdfood = <String, dynamic>{
     {
       "id": "02",
       "title": "Potato Cheese Balls",
-      "image": "image/...",
+      "image": "assets/images/fast_food/2.jpg",
       "ingredients": [
         "1 cup Boiled potato",
         "1 tbsp Chopped onion",
@@ -224,7 +224,7 @@ Map<String, dynamic> bdfood = <String, dynamic>{
     {
       "id": "03",
       "title": " Spicy Fried Puffed Rice | Muri Vaja Recipe",
-      "image": "image/...",
+      "image": "assets/images/fast_food/3.jpg",
       "ingredients": [
         "2 cups Puffed rice",
         "1 tbsp Chopped onion",
@@ -348,7 +348,7 @@ Map<String, dynamic> bdfood = <String, dynamic>{
     {
       "id": "01",
       "title": "Chicken Chow Mein/Noodles Recipe",
-      "image": "image/...",
+      "image": "assets/images/non_veg/1.jpg",
       "ingredients": [
         "2 packets Noodles",
         "100 gm Boneless chicken",
@@ -379,7 +379,7 @@ Map<String, dynamic> bdfood = <String, dynamic>{
     {
       "id": "02",
       "title": "Beef Curry with Potatoes | Gorur Mangsho Alu Diye",
-      "image": "image/...",
+      "image": "assets/images/non_veg/2.jpg",
       "ingredients": [
         "1 kg Beef",
         "1/2 cup Vegetable oil",
@@ -419,7 +419,7 @@ Map<String, dynamic> bdfood = <String, dynamic>{
     {
       "id": "03",
       "title": "Super Easy Kachchi Biryani Recipe",
-      "image": "image/...",
+      "image": "assets/images/non_veg/3.jpg",
       "ingredients": [
         "2 kg Mutton or beef",
         "1 kg Aromatic rice (chinigura/kalijeera)",

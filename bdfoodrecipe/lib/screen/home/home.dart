@@ -20,7 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
       length: 5,
       child: Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.orange,
+          backgroundColor: Colors.red,
           centerTitle: true,
           title: Text("Bd Food Recipes".toUpperCase()),
           actions: [
@@ -34,24 +34,27 @@ class _HomeScreenState extends State<HomeScreen> {
         body: Column(
           children: [
             SizedBox(height: 15,),
-            TabBar(
-              unselectedLabelColor: Colors.redAccent,
-                indicatorSize: TabBarIndicatorSize.tab,
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: TabBar(
+                labelPadding: EdgeInsets.zero,
+                indicatorWeight: 1.0,
+                indicatorColor: Colors.orange,
+                labelStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.w600, fontFamily: "Gilroy"),
+                unselectedLabelColor: Colors.red,
+                labelColor: Colors.white,
                 indicator: BoxDecoration(
-                    gradient: LinearGradient(
-                        colors: [Colors.redAccent, Colors.orangeAccent]
-                    ),
-                    borderRadius: BorderRadius.circular(50),
-                    color: Colors.redAccent,
-                    
+                  color: Colors.red,
+                  borderRadius: BorderRadius.circular(4.0)
+                ),
+                tabs: [
+                  Tab(child: Text("Rice",)),
+                  Tab(child: Text("Desert")),
+                  Tab(child: Text("Bread")),
+                  Tab(child: Text("Fast-Food")),
+                  Tab(child: Text("Non-Veg")),
+                ]
               ),
-              tabs: [
-                Tab(child: Text("Rice",)),
-                Tab(child: Text("Desert")),
-                Tab(child: Text("Bread")),
-                Tab(child: Text("FastFood")),
-                Tab(child: Text("Non-Veg")),
-              ]
             ),
     
             Expanded(
@@ -67,7 +70,6 @@ class _HomeScreenState extends State<HomeScreen> {
             )
           ],
         ),
-    
       ),
     );
   }
