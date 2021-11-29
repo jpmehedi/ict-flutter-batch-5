@@ -1,4 +1,4 @@
-import 'package:bdfoodrecipe/screen/home/home.dart';
+import 'package:bdfoodrecipe/screen/details/detail.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -14,9 +14,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      initialRoute: HomeScreen.path,
+      initialRoute: Details.path,
       routes: {
-        HomeScreen.path: (ctx)=> HomeScreen(),
+        // HomeScreen.path: (ctx)=> HomeScreen(),
+        Details.path: (ctx)=>Details(),
       },
     );
   }
