@@ -1,11 +1,12 @@
   import 'package:flutter/material.dart';
 
-SliverGridDelegateWithMaxCrossAxisExtent customGridDelegate() {
-    return SliverGridDelegateWithMaxCrossAxisExtent(
-      maxCrossAxisExtent: 300,
-      childAspectRatio: 8 / 8,
+SliverGridDelegateWithFixedCrossAxisCount customGridDelegate() {
+    return SliverGridDelegateWithFixedCrossAxisCount(
+      crossAxisCount: 2,
+      childAspectRatio: 0.7,
       crossAxisSpacing: 10,
-      mainAxisSpacing: 10
+      mainAxisSpacing: 10,
+      
     );
 }
 

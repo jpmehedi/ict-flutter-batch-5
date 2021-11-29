@@ -30,12 +30,14 @@ class CustomGridTile extends StatelessWidget {
                 color: Colors.green,
                 fontSize: 20
               ),
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
             ),
           ),
          
           Padding(
             padding: const EdgeInsets.all(8),
-            child: Row(
+            child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Row(

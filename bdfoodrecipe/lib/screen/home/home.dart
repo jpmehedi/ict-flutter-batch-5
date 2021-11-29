@@ -37,7 +37,8 @@ class _HomeScreenState extends State<HomeScreen> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: TabBar(
-                labelPadding: EdgeInsets.zero,
+                isScrollable: true,
+                labelPadding: EdgeInsets.symmetric(horizontal: 10),
                 indicatorWeight: 1.0,
                 indicatorColor: Colors.orange,
                 labelStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.w600, fontFamily: "Gilroy"),
