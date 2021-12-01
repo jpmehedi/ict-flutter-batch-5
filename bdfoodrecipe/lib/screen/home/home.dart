@@ -30,7 +30,134 @@ class _HomeScreenState extends State<HomeScreen> {
             )
           ],
         ),
-        drawer: Drawer(),
+        drawer: Drawer(
+          child: Container(
+            color: Colors.black87,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Image.asset(
+                  "assets/images/non_veg/1.jpg",
+                  width: double.infinity,
+                  height: 150,
+                  fit: BoxFit.cover,
+                ),
+
+                ListTile(
+                  onTap: (){},
+                  title: Text(
+                    "My Recipe",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w500,
+                      fontSize: 18
+                    ),
+                  ),
+                ),
+                Divider(thickness: 0.5, color: Colors.white, height: 0,),
+                ListTile(
+                  onTap: (){},
+                  title: Text(
+                    "Favorite",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w500,
+                      fontSize: 18
+                    ),
+                  ),
+                ),
+                 Divider(thickness: 0.5, color: Colors.white, height: 0,),
+                ListTile(
+                  onTap: (){},
+                  title: Text(
+                    "Cooked",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w500,
+                      fontSize: 18
+                    ),
+                  ),
+                ),
+                Divider(thickness: 0.5, color: Colors.white, height: 0,),
+                ListTile(
+                  onTap: (){},
+                  title: Text(
+                    "Tips",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w500,
+                      fontSize: 18
+                    ),
+                  ),
+                ),
+                Container(
+                  color: Colors.black54,
+                  width: double.infinity,
+                  height: 60,
+                  padding: const EdgeInsets.all(15.0),
+                  child: Text(
+                    "More",      
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18
+                    ),
+                  ),
+                ),
+
+               ListTile(
+                  onTap: (){},
+                  leading: Icon(Icons.search, color: Colors.white,),
+                  title: Text(
+                    "Search Recipe",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w500,
+                      fontSize: 18
+                    ),
+                  ),
+                ),
+                ListTile(
+                  onTap: (){},
+                  leading: Icon(Icons.rate_review, color: Colors.white,),
+                  title: Text(
+                    "Rate Us",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w500,
+                      fontSize: 18
+                    ),
+                  ),
+                ),
+                ListTile(
+                  onTap: (){},
+                  leading: Icon(Icons.update, color: Colors.white,),
+                  title: Text(
+                    "Update",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w500,
+                      fontSize: 18
+                    ),
+                  ),
+                ),
+                ListTile(
+                  onTap: (){},
+                  leading: Icon(Icons.person, color: Colors.white,),
+                  title: Text(
+                    "About us",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w500,
+                      fontSize: 18
+                    ),
+                  ),
+                ),
+
+
+              ],
+            ),
+          ),
+        ),
         body: Column(
           children: [
             SizedBox(height: 15,),
