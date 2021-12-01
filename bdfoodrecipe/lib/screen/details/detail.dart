@@ -2,10 +2,30 @@
 import 'package:bdfoodrecipe/screen/video/video.dart';
 import 'package:bdfoodrecipe/widget/custom_button.dart';
 import 'package:flutter/material.dart';
+import 'package:share/share.dart';
+
 
 class DetailScreen extends StatelessWidget {
   static const String path = "DetailScreen";
   const DetailScreen({ Key? key }) : super(key: key);
+
+   void _onShare(BuildContext context, text, subject) async {
+    if (subject.isNotEmpty) {
+      await Share.share(
+        "$text",
+        subject: "$subject",
+      );
+    } else {
+      await Share.share(
+        "Dummy text",
+        subject: "Dummy Subject",
+      );
+    }
+  }
+
+  String getShareData(title, ingredients, directons){
+    return title + ingredients.toString() + directons.toString();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +46,9 @@ class DetailScreen extends StatelessWidget {
         ),
         actions: [
           IconButton(
-            onPressed: (){}, 
+            onPressed: (){
+              _onShare(context,  getShareData(items["data"]["title"], items["data"]["ingredients"], items["data"]["directions"]), "Subject");
+            }, 
             icon: Icon(Icons.share)
           )
         ],
