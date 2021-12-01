@@ -1,4 +1,6 @@
 import 'package:bdfoodrecipe/screen/details/detail.dart';
+import 'package:bdfoodrecipe/screen/home/home.dart';
+import 'package:bdfoodrecipe/screen/video/video.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -14,10 +16,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      initialRoute: Details.path,
+      initialRoute: HomeScreen.path,
       routes: {
-        // HomeScreen.path: (ctx)=> HomeScreen(),
-        Details.path: (ctx)=>Details(),
+        HomeScreen.path: (ctx)=> HomeScreen(),
+        DetailScreen.path: (ctx)=>DetailScreen(),
+        YoutubeScreen.path: (ctx)=>YoutubeScreen(),
       },
     );
   }
