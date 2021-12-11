@@ -30,6 +30,7 @@ dependencies:
   video_player:
   webview_flutter:
   share:
+  flutter_native_splash:
 
 dev_dependencies:
   flutter_test:
@@ -52,6 +53,7 @@ flutter:
     - assets/images/dessert/
     - assets/images/fast_food/
     - assets/images/non_veg/
+    - assets/splash/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

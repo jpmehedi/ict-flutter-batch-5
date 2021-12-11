@@ -2,7 +2,7 @@
     package="com.example.bdfoodrecipe">
     <uses-permission android:name="android.permission.INTERNET"/>
    <application
-        android:label="bdfoodrecipe"
+        android:label="Foodie"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
