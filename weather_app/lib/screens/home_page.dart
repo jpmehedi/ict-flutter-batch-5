@@ -6,24 +6,195 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        children: [
-          Text("Pasuruan"),
-          Text("17.45 PM"),
+    return SafeArea(
+      child: Scaffold(
+        body: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+          child: Column(
+            children: [
+              Container(
+                child: Column(
+                  children: [
+                    Text("Pasuruan"),
+                    Text("17.45 PM"),
+                    CarouselSlider(
+                      options: CarouselOptions(height: 380.0),
+                      items: [1,2,3,4,5].map((i) {
+                        return Builder(
+                          builder: (BuildContext context) {
+                            return WeatherCard();
+                          },
+                        );
+                      }).toList(),
+                    )
+                  ],
+                ),
+              ),
+              Container(
+                color: Colors.green,
+                child: Transform.translate(
+                  offset: Offset(0, -70),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Container(
+                        margin: EdgeInsets.symmetric(horizontal: 20),
+                        height: 122,
+                        width: MediaQuery.of(context).size.width,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(20)
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            ColumnBuilder(
+                              imageName: "carbon_humidity",
+                              value: "75%",
+                              level: "Humidity",
+                            ),
+                            ColumnBuilder(
+                              imageName: "tabler_wind",
+                              value: "8 km/h",
+                              level: "Wind",
+                            ),
+                            ColumnBuilder(
+                              imageName: "ion_speedometer",
+                              value: "1011",
+                              level: "Air Pressure",
+                            ),
+                            ColumnBuilder(
+                              imageName: "ic_round-visibility",
+                              value: "6 km",
+                              level: "Visibility",
+                            ),
+                          ],
+                        ),
+                      ),
+                      Container(
+                        margin: EdgeInsets.symmetric(horizontal: 20,),
+                        padding: EdgeInsets.only(top: 20, bottom: 20),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                          Text("Today", 
+                            style: TextStyle(
+                              color: Colors.black, fontSize: 16, fontWeight: FontWeight.bold),
+                            ),
+                            Row(
+                              children: [
+                              Text("Next 7 Days", 
+                                style: TextStyle(
+                                  color: Colors.black, fontSize: 16, fontWeight: FontWeight.bold),
+                              ),
+                              Icon(Icons.arrow_forward_ios, size: 20,)
+                              ],
+                            )
+                          ],
+                        ),
+                      ),
+                
+                    Container(
+                      height: 132,
+                      child: ListView.builder(
+                        shrinkWrap: true,
+                        scrollDirection: Axis.horizontal,
+                        itemCount: 7,
+                        itemBuilder:(context, index){
+                          return DailyWeatherCard();
+                        } 
+                      ),
+                    )
+                    ],
+                  ),
+                ),
+              ),
+        
 
-            CarouselSlider(
-            options: CarouselOptions(height: 400.0),
-            items: [1,2,3,4,5].map((i) {
-              return Builder(
-                builder: (BuildContext context) {
-                  return WeatherCard();
-                },
-              );
-            }).toList(),
-          )
+            ],
+          ),
+        ),
+      ),  
+    );
+  }
+}
+
+class DailyWeatherCard extends StatelessWidget {
+  const DailyWeatherCard({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 132,
+      width: 92,
+      margin: EdgeInsets.symmetric(horizontal: 10),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(20),
+        gradient: LinearGradient(
+          colors: [
+            Color(0xff4B3EAE),
+            Color(0xff8C85CB),
+            Color(0xff4B3EAE),
+          ],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight
+        ),
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            "06:00 AM",
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 12,
+              fontWeight: FontWeight.bold
+            ),
+          ),
+          Image.asset(
+            "assets/moon_cloud_fast_wind.png",
+            scale: 4,
+          ),
+          SizedBox(height: 8,),
+          Text(
+            "28°",
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 18,
+              fontWeight: FontWeight.bold
+            ),
+          ),
         ],
       ),
+    );
+  }
+}
+
+class ColumnBuilder extends StatelessWidget {
+  final String? imageName;
+  final String? value;
+  final String? level;
+  const ColumnBuilder({
+    Key? key, this.imageName, this.level, this.value
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Image.asset("assets/$imageName.png"),
+        Text(
+          "$value", 
+           style: TextStyle(color: Colors.black, fontSize: 12, fontWeight: FontWeight.bold),
+        ),
+        Text(
+          "$level", 
+           style: TextStyle(color:Color(0xff8C85CB),fontSize: 10, fontWeight: FontWeight.bold),
+        )
+      ],
     );
   }
 }
