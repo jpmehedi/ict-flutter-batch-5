@@ -1,8 +1,50 @@
+import 'dart:convert';
+
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-
-class HomePage extends StatelessWidget {
+import 'package:http/http.dart' as http;
+import 'package:weather_app/screens/details.dart';
+class HomePage extends StatefulWidget {
+  static const String path = "HomePage";
   const HomePage({ Key? key }) : super(key: key);
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+//https://api.openweathermap.org/data/2.5/onecall?lat=23.6850&lon=-90.3563&exclude=minutely&appid=016ea41acccd45affefe7efd91a019d1
+  final String baseUrl = "https://api.openweathermap.org/data/2.5/onecall?";
+
+  final String latLong = "lat=23.6850&lon=90.3563";
+
+  final String apiKey = "016ea41acccd45affefe7efd91a019d1";
+
+  Map weatherData = {};
+
+
+  Future getWeather()async{
+   final response =  await http.get(Uri.parse(baseUrl+latLong+"&exclude=minutely&appid="+ apiKey));
+
+    if(response.statusCode == 200){
+      setState(() {
+        weatherData = jsonDecode(response.body);
+      });
+    }
+  }
+
+  int convertTemp(double temp){
+    int _temp = temp.toInt() - 273;
+    return _temp;
+  }
+
+  @override
+  void initState() {
+    getWeather();
+    super.initState();
+  }
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +64,13 @@ class HomePage extends StatelessWidget {
                       items: [1,2,3,4,5].map((i) {
                         return Builder(
                           builder: (BuildContext context) {
-                            return WeatherCard();
+                            return WeatherCard(
+                              onTap: (){
+                                Navigator.pushNamed(context, DetailsScreen.path);
+                              },
+                              temp: "${convertTemp(weatherData["current"]["temp"])}",
+                              weather: "${weatherData["current"]["weather"][0]["main"]}",
+                            );
                           },
                         );
                       }).toList(),
@@ -50,22 +98,22 @@ class HomePage extends StatelessWidget {
                           children: [
                             ColumnBuilder(
                               imageName: "carbon_humidity",
-                              value: "75%",
+                              value: "${weatherData["current"]["humidity"]}%",
                               level: "Humidity",
                             ),
                             ColumnBuilder(
                               imageName: "tabler_wind",
-                              value: "8 km/h",
+                              value: "${weatherData["current"]["wind_speed"]} km/h",
                               level: "Wind",
                             ),
                             ColumnBuilder(
                               imageName: "ion_speedometer",
-                              value: "1011",
+                              value: "${weatherData["current"]["pressure"]}",
                               level: "Air Pressure",
                             ),
                             ColumnBuilder(
                               imageName: "ic_round-visibility",
-                              value: "6 km",
+                              value: "${weatherData["current"]["pressure"] / 1000} km",
                               level: "Visibility",
                             ),
                           ],
@@ -200,92 +248,98 @@ class ColumnBuilder extends StatelessWidget {
 }
 
 class WeatherCard extends StatelessWidget {
+  final VoidCallback? onTap;
+  final String? temp;
+  final String? weather;
   const WeatherCard({
-    Key? key,
+    Key? key, this.onTap, this.temp, this.weather
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      alignment: Alignment.topCenter,
-      children: [
-        Container(
-          height: 300,
-          width: 230,
-        ),
-        Positioned(
-          top: 15,
-          child: Container(
-            height: 275,
+    return GestureDetector(
+      onTap: onTap,
+      child: Stack(
+        alignment: Alignment.topCenter,
+        children: [
+          Container(
+            height: 300,
             width: 230,
-            padding: EdgeInsets.only(bottom: 15),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(40),
-              gradient: LinearGradient(
-                colors: [
-                  Color(0xff4B3EAE),
-                  Color(0xff8C85CB),
-                  Color(0xff4B3EAE),
+          ),
+          Positioned(
+            top: 15,
+            child: Container(
+              height: 275,
+              width: 230,
+              padding: EdgeInsets.only(bottom: 15),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(40),
+                gradient: LinearGradient(
+                  colors: [
+                    Color(0xff4B3EAE),
+                    Color(0xff8C85CB),
+                    Color(0xff4B3EAE),
+                  ],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight
+                ),
+          
+                // boxShadow: [
+                //   BoxShadow(
+                //     color: Color(0xff4B3EAE),
+                //     blurRadius: 50,
+                //     spreadRadius: 7,
+                //     offset: Offset(7,7)
+                //   )
+                // ]
+              ),
+              child: Column(
+                children: [
+                  Image.asset(
+                    "assets/moon_cloud_fast_wind.png",
+                    scale: 1.7,
+                  ),
+                  SizedBox(height: 20,),
+                  Text(
+                    "$temp°",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 72,
+                      fontWeight: FontWeight.bold
+                    ),
+                  ),
+                  Text(
+                    "$weather",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 12,
+                      fontWeight: FontWeight.bold
+                    ),
+                  )
                 ],
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight
-              ),
-        
-              boxShadow: [
-                BoxShadow(
-                  color: Color(0xff4B3EAE),
-                  blurRadius: 50,
-                  spreadRadius: 7,
-                  offset: Offset(7,7)
-                )
-              ]
-            ),
-            child: Column(
-              children: [
-                Image.asset(
-                  "assets/moon_cloud_fast_wind.png",
-                  scale: 1.7,
-                ),
-                SizedBox(height: 20,),
-                Text(
-                  "28°",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 72,
-                    fontWeight: FontWeight.bold
-                  ),
-                ),
-                Text(
-                  "Moon Cloud Fast Wind",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 12,
-                    fontWeight: FontWeight.bold
-                  ),
-                )
-              ],
-            ),
-          ),
-        ),
-        Container(
-          width: 140,
-          height: 34,
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(40)
-          ),
-          child: Center(
-            child: Text(
-              "Sunday, 8 March 2021",
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 12,
-                fontWeight: FontWeight.bold
               ),
             ),
           ),
-        )
-      ],
+          Container(
+            width: 140,
+            height: 34,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(40)
+            ),
+            child: Center(
+              child: Text(
+                "Sunday, 8 March 2021",
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 12,
+                  fontWeight: FontWeight.bold
+                ),
+              ),
+            ),
+          )
+        ],
+      ),
     );
   }
 }
