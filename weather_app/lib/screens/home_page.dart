@@ -70,6 +70,7 @@ class _HomePageState extends State<HomePage> {
                               },
                               temp: "${convertTemp(weatherData["current"]["temp"])}",
                               weather: "${weatherData["current"]["weather"][0]["main"]}",
+                              icon: "${weatherData["current"]["weather"][0]["icon"]}",
                             );
                           },
                         );
@@ -251,8 +252,9 @@ class WeatherCard extends StatelessWidget {
   final VoidCallback? onTap;
   final String? temp;
   final String? weather;
+  final String? icon;
   const WeatherCard({
-    Key? key, this.onTap, this.temp, this.weather
+    Key? key, this.onTap, this.temp, this.weather, this.icon
   }) : super(key: key);
 
   @override
@@ -295,9 +297,9 @@ class WeatherCard extends StatelessWidget {
               ),
               child: Column(
                 children: [
-                  Image.asset(
-                    "assets/moon_cloud_fast_wind.png",
-                    scale: 1.7,
+                  Image.network(
+                    "$icon.png",
+                    // scale: 1.7,
                   ),
                   SizedBox(height: 20,),
                   Text(
