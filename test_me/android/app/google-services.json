@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "228590808431",
+    "project_id": "test-app-two-56042",
+    "storage_bucket": "test-app-two-56042.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:228590808431:android:10e7b7506cf8f16069cc9a",
+        "android_client_info": {
+          "package_name": "com.mustak.test_me"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "228590808431-qd4kagvooi178fu8s4n90tjm9vfcb2cj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBvyuzlxi25Fn2fH_TaWaTTOSKbxCGHmDk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "228590808431-qd4kagvooi178fu8s4n90tjm9vfcb2cj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
