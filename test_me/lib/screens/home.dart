@@ -11,17 +11,39 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  CollectionReference users = FirebaseFirestore.instance.collection('users');
-  List user  = [];
- Future getUser()async{
-    CollectionReference instance = await FirebaseFirestore.instance.collection('users');
 
-    instance.get().then((QuerySnapshot querySnapshot) {
-        setState(() {
-          user = querySnapshot.docs;
-        });
+  late  List<DocumentSnapshot> users;
+
+//  int  totalUser(List users){
+//     return users.length;
+//   }
+
+bool isLoading = false;
+
+  Future deleteUser(id)async{
+    setState(() {
+      isLoading = true;
     });
+      CollectionReference _users = FirebaseFirestore.instance.collection('users');
+      _users
+        .doc(id)
+        .delete()
+        .then((value) {
+          print("User Deleted");
+          Navigator.pop(context);
+          setState(() {
+            isLoading = false;
+          });
+        })
+        .catchError((error) => print("Failed to delete user: $error"));
+   
   }
+
+
+
+
+
+
 
  Widget getAvatar(image){
    print('asas ${image.runtimeType}]');
@@ -38,13 +60,7 @@ class _HomeScreenState extends State<HomeScreen> {
     }
   }
 
-  @override
-  void initState() {
-    getUser();
-    super.initState();
-  }
 
-  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -80,7 +96,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                     Text(
-                      "36",
+                    "5",
                       style: TextStyle(
                         fontSize: 14, 
                         fontWeight: FontWeight.w500,
@@ -118,96 +134,103 @@ class _HomeScreenState extends State<HomeScreen> {
               thickness: 1,
               color: AppColor.secondaryColor.withOpacity(0.25),
             ),
-            Expanded(
-              child: ListView.builder(
-                shrinkWrap: true,
-                itemCount: user.length,
-                itemBuilder: (context, index){
-                  return ListTile(
+           Expanded(
+              child: FutureBuilder(
+                  future: FirebaseFirestore.instance.collection('users').get(),
 
-                    leading: user[index]["image"] != "null" ?  CircleAvatar(
-                      radius: 18,
-                      backgroundImage: NetworkImage(user[index]["image"])
-                
-                    ) : CircleAvatar(
-                      radius: 18,
-                      backgroundImage: AssetImage("assets/image/profile.jpg"),
-                    ),
-                    title: Text(
-                      "${user[index]["name"]}",
-                      style: TextStyle(
-                        fontSize: 17, 
-                        fontWeight: FontWeight.w400,
-                        color: AppColor.secondaryColor
-                      ),
-                    ),
-                    subtitle:  Text(
-                      "${user[index]["email"]}",
-                      style: TextStyle(
-                        fontSize: 13, 
-                        fontWeight: FontWeight.w400,
-                        color: AppColor.secondaryColor.withOpacity(0.4)
-                      ),
-                    ),
-                    trailing: ElevatedButton(
-                      onPressed: (){
-                        showDialog(
-                          context: context, 
-                          builder: (context)=> AlertDialog(
-                            title: Text(
-                              "Are you sure ?",
+                  builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+                    if (snapshot.hasError) {
+                      return Text("Something went wrong");
+                    }
+
+                    if (!snapshot.hasData) {
+                      return Text("Document does not exist");
+                    }
+
+                    if (snapshot.connectionState == ConnectionState.done) {
+                      users = snapshot.data!.docs;
+                      return ListView(
+                        children: users.map((user) {
+                          return ListTile(
+
+                          leading: user["image"] != "null" ?  CircleAvatar(
+                            radius: 18,
+                            backgroundImage: NetworkImage(user["image"])
+                      
+                          ) : CircleAvatar(
+                            radius: 18,
+                            backgroundImage: AssetImage("assets/image/profile.jpg"),
+                          ),
+                          title: Text(
+                            "${user["name"]}",
+                            style: TextStyle(
+                              fontSize: 17, 
+                              fontWeight: FontWeight.w400,
+                              color: AppColor.secondaryColor
                             ),
-                            content: Container(
-                              height: 188,
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: [
-                                  Divider(
-                                    thickness: 1,
-                                    color: AppColor.secondaryColor,
+                          ),
+                          subtitle:  Text(
+                            "${user["email"]}",
+                            style: TextStyle(
+                              fontSize: 13, 
+                              fontWeight: FontWeight.w400,
+                              color: AppColor.secondaryColor.withOpacity(0.4)
+                            ),
+                          ),
+                          trailing: ElevatedButton(
+                            onPressed: (){
+                              showDialog(
+                                context: context, 
+                                builder: (context)=> AlertDialog(
+                                  title: Text(
+                                    "Are you sure ?",
                                   ),
-                                ],
+                                  actionsAlignment: MainAxisAlignment.spaceBetween,
+                                  actions: [
+                                    ElevatedButton(
+                                      style: ElevatedButton.styleFrom(
+                                        primary: Colors.grey
+                                      ),
+                                      onPressed: (){}, 
+                                      child: Text("Cancel")
+                                    ),
+                                    ElevatedButton(
+                                      style: ElevatedButton.styleFrom(
+                                        primary: AppColor.secondaryColor
+                                      ),
+                                      onPressed: (){
+                                        deleteUser(user.id);
+                                      }, 
+                                      child: Text("Confirm")
+                                    )
+                                  ],
+                                )
+                              );
+                            },
+                            child: Text(
+                              'Remove',
+                              style: TextStyle(
+                                fontSize: 13, 
+                                fontWeight: FontWeight.w400,
+                                color: AppColor.secondaryColor
                               ),
                             ),
-                            actionsAlignment: MainAxisAlignment.spaceBetween,
-                            actions: [
-                              ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                  primary: Colors.grey
-                                ),
-                                onPressed: (){}, 
-                                child: Text("Cancel")
+                            style: ElevatedButton.styleFrom(
+                              minimumSize: Size(71, 32),
+                              primary: AppColor.greyColor.withOpacity(0.50),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(7), // <-- Radius
                               ),
-                              ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                  primary: Colors.redAccent
-                                ),
-                                onPressed: (){}, 
-                                child: Text("Confirm")
-                              )
-                            ],
-                          )
+                            ),
+                          ),
                         );
-                      },
-                      child: Text(
-                        'Remove',
-                        style: TextStyle(
-                          fontSize: 13, 
-                          fontWeight: FontWeight.w400,
-                          color: AppColor.secondaryColor
-                        ),
-                      ),
-                      style: ElevatedButton.styleFrom(
-                        minimumSize: Size(71, 32),
-                        primary: AppColor.greyColor.withOpacity(0.50),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(7), // <-- Radius
-                        ),
-                      ),
-                    ),
-                  );
-                }
-              ),
+                        }).toList(),
+                      );
+                    }
+
+                    return Text("loading");
+                  },
+                ),
             )
           ],
         ),

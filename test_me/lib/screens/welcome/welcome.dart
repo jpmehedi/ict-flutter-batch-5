@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:test_me/screens/home.dart';
 import 'package:test_me/screens/welcome/login.dart';
+import 'package:test_me/screens/welcome/signup.dart';
 import 'package:test_me/utils/app_color.dart';
 import 'package:test_me/widgets/custom_button.dart';
 
@@ -61,10 +61,10 @@ class WelcomeScreen extends StatelessWidget {
               SizedBox(height: 13,),
               CustomButton(
                 onTap: (){
-                  // Route route = MaterialPageRoute(builder: (ctx)=> SignUpScreen());
-                  // Navigator.push(context, route);
-                    Route route = MaterialPageRoute(builder: (ctx)=> HomeScreen());
-                    Navigator.push(context, route);
+                  Route route = MaterialPageRoute(builder: (ctx)=> SignUpScreen());
+                  Navigator.push(context, route);
+                    // Route route = MaterialPageRoute(builder: (ctx)=> HomeScreen());
+                    // Navigator.push(context, route);
                 },
                 buttonLevel: "Sign up",
                 color: AppColor.primaryColor,
